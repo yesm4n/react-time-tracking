@@ -1,13 +1,118 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  /* ### Primary */
+  /* --blue: hsl(246, 80%, 60%); */
+  /* --light-red: hsl(15, 100%, 70%); */
+  /* --soft-blue: hsl(195, 74%, 62%); */
+  /* --light-red: hsl(348, 100%, 68%); */
+  /* --lime-green: hsl(145, 58%, 55%); */
+  /* --violet: hsl(264, 64%, 52%); */
+  /* --soft-orange: hsl(43, 84%, 65%); */
+
+  /* ### Neutral */
+
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  /* --pale-blue: hsl(236, 100%, 87%); */
+  --white: hsl(0, 100%, 100%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--very-dark-blue);
+  color: var(--white);
+  margin: 0;
+  font-size: 18px;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+h4 {
+  margin: 0.5rem 0;
+}
+
+p {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+button {
+  color: var(--white);
+  border: none;
+  background: none;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* Container */
+
+.container {
+  max-width: 1000px;
+  width: 95%;
+  margin: 100px auto 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: repeat(2, 500px);
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Container children */
+
+.card-profile {
+  background-color: var(--desaturated-blue);
+  border-radius: 15px;
+}
+
+.card-profile img {
+  border: 3px solid var(--white);
+  border-radius: 100%;
+}
+
+.card {
+  background-color: var(--dark-blue);
+  border-radius: 15px;
+  border-radius: 15px;
+}
+
+.card:first-child {
+  grid-row: span 2;
+}
+
+.card-padding {
+  padding: 1rem 2rem;
+}
+
+.card-buttons {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
