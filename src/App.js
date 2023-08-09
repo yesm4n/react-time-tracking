@@ -1,29 +1,28 @@
 import data from './Data';
 import jeremy from './images/image-jeremy.png';
-import Ellipsis from './images/Ellipsis.svg';
-import Exercise from './images/Exercise.svg';
-import Play from './images/Play.svg';
-import Selfcare from './images/Selfcare.svg';
-import Social from './images/Social.svg';
-import Study from './images/Study.svg';
-import Work from './images/Work.svg';
+import exercise from './images/exercise.svg';
+import play from './images/play.svg';
+import selfcare from './images/selfcare.svg';
+import social from './images/social.svg';
+import study from './images/study.svg';
+import work from './images/work.svg';
 import { useState } from 'react';
 
 export default function App() {
-  const [timeFrame, setTimeFrame] = useState('daily');
-  const images = [Work, Study, Social, Selfcare, Play, Exercise, Ellipsis];
+  const [time, setTime] = useState('daily');
+  const images = [work, play, study, exercise, social, selfcare];
 
   return (
     <div className="container">
       <div className="hero">
-        <Profile setTimeFrame={setTimeFrame} />
-        <Card data={data} timeFrame={timeFrame} images={images} />
+        <Profile setTime={setTime} />
+        <Card data={data} time={time} images={images} />
       </div>
     </div>
   );
 }
 
-function Profile({ setTimeFrame }) {
+function Profile({ setTime }) {
   return (
     <div className="card">
       <div className="card-profile">
@@ -34,9 +33,9 @@ function Profile({ setTimeFrame }) {
         </div>
       </div>
       <div className="card-buttons card-padding">
-        <Button onClick={() => setTimeFrame('daily')}> Daily </Button>
-        <Button onClick={() => setTimeFrame('weekly')}> Weekly </Button>
-        <Button onClick={() => setTimeFrame('monthly')}> Monthly </Button>
+        <Button onClick={() => setTime('daily')}> Daily </Button>
+        <Button onClick={() => setTime('weekly')}> Weekly </Button>
+        <Button onClick={() => setTime('monthly')}> Monthly </Button>
       </div>
     </div>
   );
@@ -46,7 +45,7 @@ function Button({ children, onClick }) {
   return <button onClick={onClick}>{children}</button>;
 }
 
-function Card({ data, timeFrame, images }) {
+function Card({ data, time, images }) {
   return (
     <>
       {data.map((title, index) => (
@@ -54,8 +53,8 @@ function Card({ data, timeFrame, images }) {
           <div className="card-padding">
             <img src={images[index]} alt={title.title} />
             <h4>{title.title}</h4>
-            <h2>{title.timeframes[timeFrame].current}hrs</h2>
-            <p>Last Week - {title.timeframes[timeFrame].previous}hrs</p>
+            <h2>{title.timeframes[time].current}hrs</h2>
+            <p>Last Week - {title.timeframes[time].previous}hrs</p>
           </div>
         </div>
       ))}
